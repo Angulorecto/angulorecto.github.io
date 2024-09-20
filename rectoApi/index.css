@@ -100,6 +100,18 @@ body {
     height: 5px;
 }
 
+.openSite {
+    padding: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #0089ff;
+    border: none;
+    color: white;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
 @keyframes dropdownFadeIn {
     from {
         display: flex;
