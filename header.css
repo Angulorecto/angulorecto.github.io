@@ -1,0 +1,132 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20%;
+    min-height: 140px;
+    width: 100%;
+    display: flex;
+    background-color: #1b1b1b;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.headerLogo {
+    height: 80%;
+    z-index: 10;
+}
+
+.links {
+    gap: 5%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerLink {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    padding: 10px 20px;
+    cursor: pointer; /* Add cursor:pointer to make <p> behave like a link */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    animation: 0.3s dropdownFadeIn forwards;
+}
+
+.dropdown:not(:hover) .dropdown-content{
+    display: flex;
+    animation: 0.3s dropdownFadeOut forwards;
+}
+
+.rectosystem {
+    transition: all 0.3s;
+}
+
+.dropdown:hover .rectosystem {
+    border-radius: 20px;
+    background-color: #353535;
+}
+
+.dropdown-content {
+    margin-top: 18px;
+    gap: 5%;
+    flex-direction: column;
+    border-radius: 10px;
+    top: 30px;
+    display: none;
+    position: absolute;
+    background-color: #353535;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+}
+
+.dropdown-content a {
+    text-decoration: none;
+    display: block;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+.dropdown-content a:hover {
+    background-color: #4d4d4d;
+}
+
+.margin {
+    height: 5px;
+}
+
+.pageBody {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background-color: #262626;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        display: flex;
+        opacity: 0;
+    }
+    to {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+@keyframes dropdownFadeOut {
+    0% {
+        display: flex;
+        opacity: 1;
+    }
+    99.9% {
+        display: flex;
+        opacity: 0;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
