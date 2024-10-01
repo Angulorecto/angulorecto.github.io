@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="myChart"></canvas>
+  
+  <script>
+    // Sample dataset
+    const data = {
+      labels: [],
+      datasets: [{
+        label: 'Stonks',
+        data: [],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    // Configuration for the chart
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // Render the chart
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    let months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    function getRandomNumber(max) {
+        return Math.floor(Math.random() * (max + 1));
+    }
+
+    function getRandomMonth() {
+        let randomIndex = Math.floor(Math.random() * months.length);
+        return months[randomIndex];
+    }
+
+    // Function to dynamically add new data
+    function addNewData() {
+      myChart.data.labels.push(getRandomMonth());   // Add new label
+      myChart.data.datasets[0].data.push(getRandomNumber(100)); // Add new data point
+      myChart.update();  // Update the chart
+    }
+
+    setInterval(() => { addNewData() }, 1000);
+  </script>
+</body>
+</html>
